@@ -28,7 +28,7 @@ function rightCandidate(matrix, vert, horz, suggestNumber) {
     
     // проверяем на наличие кандидата по вертикали
     for (let cl = 0; cl < 9; cl++) {
-        if (cl != horz && matrix[vert][cl] === suggestNumber) {
+        if (matrix[vert][cl] === suggestNumber && cl != horz) {
             return false;
         }
     }
@@ -36,7 +36,7 @@ function rightCandidate(matrix, vert, horz, suggestNumber) {
     // проверяем на наличие кандидата по горизонтали
 
     for (let rw = 0; rw < 9; rw++) {
-        if (rw != vert && matrix[rw][horz] === suggestNumber) {
+        if (matrix[rw][horz] === suggestNumber && rw != vert ) {
             return false;
         }
     }
@@ -44,7 +44,7 @@ function rightCandidate(matrix, vert, horz, suggestNumber) {
     // проверяем на наличие кандидата в боксе 3х3
     for (let rw = 0; rw < 3; rw++) {
         for (let cl = 0; cl < 3; cl++) {
-            if (rw != vert && cl != horz && matrix[mainRow + rw][mainColumn + cl] === suggestNumber) {
+            if (matrix[mainRow + rw][mainColumn + cl] === suggestNumber && rw != vert && cl != horz) {
                 return false;
             }
         }
